@@ -2,7 +2,6 @@
 
 - [Express Js](https://expressjs.com/) - Fast, unopinionated, minimalist web framework for Node.js.
 - [Node.js](https://nodejs.org/en/) - Node.js is an open-source, cross-platform JavaScript runtime environment.
-- [MongoDB](https://www.mongodb.com/) - For the next generation of intelligent applications.
 - [Typescript](https://www.typescriptlang.org/) - JavaScript with syntax for types.
 - [Yup](https://github.com/jquense/yup) - Dead simple Object schema validation.
 - [Cyclic sh](https://www.cyclic.sh) - Deploy Fullstack Javascript Apps: Front-end, Backend, Database, Scheduled tasks. All running with zero-config.
