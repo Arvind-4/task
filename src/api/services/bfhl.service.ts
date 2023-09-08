@@ -1,5 +1,4 @@
 import { type Request, type Response } from 'express'
-import { yupUserSchema } from '@src/api/models/user'
 
 function extractNumbers(arr) {
   let numbers = []
