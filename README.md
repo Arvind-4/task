@@ -6,24 +6,72 @@
 - [Yup](https://github.com/jquense/yup) - Dead simple Object schema validation.
 - [Cyclic sh](https://www.cyclic.sh) - Deploy Fullstack Javascript Apps: Front-end, Backend, Database, Scheduled tasks. All running with zero-config.
 
-## Getting Started:
 
-- Clone Repo
+## Test Endpoint:
 
-```bash
-mkdir tasks
-cd tasks
-git clone 
+- **POST to /bfhl**
+```shell
+ curl -H 'Content-Type: application/json' \
+      -d '{ "name": "Don", "dob": "12/08/2002",	"email": "aa2@h.com", "roll_number": "89898229", "data": ["M","1","334","4","B", 2, 90, "89", "K"]}' \
+      -X POST \
+      https://tense-waistcoat-calf.cyclic.app/bfhl
+```
+Response:
+```
+{
+  "is_status": true,
+  "user_id": "don_12082002",
+  "email": "aa2@h.com",
+  "roll_number": "89898229",
+  "numbers": [
+    1,
+    334,
+    4,
+    2,
+    90,
+    89
+  ],
+  "alphabets": [
+    "M",
+    "K",
+    "B"
+  ],
+  "highest_alphabet": [
+    "M"
+  ]
+}
 ```
 
-- Install Dependencies
+- **GET /bfhl**
+```
+curl https://tense-waistcoat-calf.cyclic.app/bfhl
+```
+Response :
+```
+{
+  "is_status": true,
+  "operation_code": 1
+}
+``` 
+
+## Getting Started: 
+
+- Clone Repo 
 
 ```bash
-npm install
+mkdir  tasks
+cd  tasks
+git  clone https://github.com/Arvind-4/task .
+```  
+
+- Install Dependencies 
+
+```bash
+npm  install
 ```
 
-- Run Dev Server
+- Run Dev Server 
 
 ```bash
-npm run dev
+npm  run  dev
 ```

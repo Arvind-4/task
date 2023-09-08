@@ -36,6 +36,7 @@ export const bfhlPost = async (req: Request, res: Response) => {
         message: 'Invalid user data',
       })
     }
+    // const user = body
 
     user.dob = user.dob.replace(/\//g, '')
     const numbers = extractNumbers(user.data)
