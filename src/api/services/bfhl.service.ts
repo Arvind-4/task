@@ -29,25 +29,21 @@ function extractAlphabets(arr) {
 export const bfhlPost = async (req: Request, res: Response) => {
   try {
     const { body } = req
-    const user = await yupUserSchema.validate(body)
-    if (!user) {
-      return res.status(400).json({
-        is_status: false,
-        message: 'Invalid user data',
-      })
-    }
-    // const user = body
+    let dob = body.dob || '11/03/2002'
+    const name = body.name || 'Arvind'
+    const roll_number = body.roll_number || '123456789'
+    const email = body.email || 'aa4011@srmist.edu.in'
 
-    user.dob = user.dob.replace(/\//g, '')
-    const numbers = extractNumbers(user.data)
-    const alphabets = extractAlphabets(user.data)
+    dob = dob.replace(/\//g, '')
+    const numbers = extractNumbers(body.data)
+    const alphabets = extractAlphabets(body.data)
     const highest_alphabet = alphabets.sort().reverse()[0]
 
     return res.status(200).json({
       is_status: true,
-      user_id: user.name.toLowerCase() + '_' + user.dob,
-      email: user.email,
-      roll_number: user.roll_number,
+      user_id: name.toLowerCase() + '_' + dob,
+      email: email,
+      roll_number: roll_number,
       numbers: numbers,
       alphabets: alphabets,
       highest_alphabet: [highest_alphabet],
