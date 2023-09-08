@@ -1,5 +1,5 @@
 import { type Request, type Response } from 'express'
-import { yupUserSchema } from '../models/user'
+import { yupUserSchema } from '@src/api/models/user'
 
 function extractNumbers(arr) {
   let numbers = []
@@ -31,7 +31,10 @@ export const bfhlPost = async (req: Request, res: Response) => {
     const { body } = req
     const user = await yupUserSchema.validate(body)
     if (!user) {
-      throw new Error('Invalid user')
+      return res.status(400).json({
+        is_status: false,
+        message: 'Invalid user data',
+      })
     }
 
     user.dob = user.dob.replace(/\//g, '')
@@ -42,6 +45,8 @@ export const bfhlPost = async (req: Request, res: Response) => {
     return res.status(200).json({
       is_status: true,
       user_id: user.name.toLowerCase() + '_' + user.dob,
+      email: user.email,
+      roll_number: user.roll_number,
       numbers: numbers,
       alphabets: alphabets,
       highest_alphabet: [highest_alphabet],
